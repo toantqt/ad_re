@@ -1,0 +1,109 @@
+.btn-close {
+  background-color: red !important;
+  color: white !important;
+}
+
+.btn-add {
+  background-color: #303f9f !important;
+  color: white !important;
+}
+
+.btn-close:hover {
+  background-color: red !important;
+}
+.btn-add:hover {
+  background-color: #303f9f !important;
+}
+
+
+.profile-company{
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgb(241, 238, 238);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+}
+
+.profile-company .logo-company{
+  width: 180px;
+  margin: 0 auto;
+}
+
+.profile-company .bg-company{
+  width: 80%;
+  height: 260px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.profile-company .bg-company img{
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.profile-company .name-company{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-company .detail-company{
+  width: 80%;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.profile-company .detail-company .item-title{
+  font-weight: 500;
+}
+
+.wrap-recruitment{
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(251, 251, 251);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.wrap-recruitment span{
+  font-size: 16px;
+}
+.header-recruitment{
+  padding: 10px;
+}
+.recruitment-jobName{
+  color: #02528E;
+  font-weight: 500;
+  font-size: 18px;
+}
+.recruitment-company{
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+.recruitment-address{
+  color: #888;
+  font-weight: 500;
+}
+.recruitment-salary{
+  color: black;
+  font-weight: 500;
+}
+.recruitment-description{
+  font-weight: 500;
+  font-size: 16px;
+}
+.requirement-title{
+  font-size: 18px;
+  font-weight: 500;
+  color: #02528E;
+}
