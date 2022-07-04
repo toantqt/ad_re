@@ -7,8 +7,8 @@ export const covertDate = (date) => {
   return moment(date).format("DD/MM/YYYY");
 };
 
-const url = "http://localhost:6699/api";
-// const url = "https://recruitmentd24.herokuapp.com/api";
+// const url = "http://localhost:6699/api";
+const url = "https://recruitmentd24.herokuapp.com/api";
 
 // const url = "https://salon-oto.herokuapp.com/adminAPI";
 // const urlUser = "https://salon-oto.herokuapp.com/api";
