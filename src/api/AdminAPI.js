@@ -233,3 +233,38 @@ export const createContact = async (id, data) => {
       return error.response;
     });
 };
+
+export const createCandidate = async (data) => {
+  return await axios
+    .post(`${url}/editor/create-cv`, data, {
+      headers: await headers(),
+    })
+    .then(async (res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
+export const getCountCandidateEditor = async () => {
+  return await axios
+    .get(`${url}/editor/count-cv`)
+    .then(async (res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
+export const getCandidateEditor = async (page) => {
+  return await axios
+    .get(`${url}/editor/cv/${page}`)
+    .then(async (res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};

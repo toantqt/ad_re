@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {
-  getCountCandidate,
   getListsCandidate,
   covertDate,
+  getCountCandidateEditor,
+  getCandidateEditor,
 } from "../../../../api/AdminAPI";
 import Grid from "@material-ui/core/Grid";
 import TableComponent from "../../../../components/Table/Table.component";
@@ -14,19 +15,19 @@ import AddIcon from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 import AdminSlug from "../../../../resources/AdminSlug";
-import "./candidate.css";
 
-const CandidateScreens = (props) => {
+const CandidateEditor = (props) => {
   const history = useHistory();
   const [count, setCount] = useState(2);
   const [page, setPage] = useState(0);
   const [listsCandidate, setListsCandidate] = useState([]);
   useEffect(async () => {
     props.handleLoading(true);
-    await getCountCandidate().then((res) => {
+    await getCountCandidateEditor().then((res) => {
+      console.log(res);
       setCount(res.data);
     });
-    await getListsCandidate(page).then((res) => {
+    await getCandidateEditor(page).then((res) => {
       setListsCandidate(res.data);
     });
     props.handleLoading(false);
@@ -36,8 +37,8 @@ const CandidateScreens = (props) => {
     { field: "stt", headerName: "STT", width: 90 },
     { field: "name", headerName: "Họ tên", width: 200 },
     { field: "phoneNumber", headerName: "Điện thoại", width: 180 },
+    { field: "email", headerName: "Email", width: 180 },
     { field: "address", headerName: "Địa chỉ", width: 300 },
-    { field: "level", headerName: "Học vấn", width: 180 },
     { field: "created", headerName: "Ngày tạo", width: 150 },
     {
       field: "action",
@@ -76,10 +77,10 @@ const CandidateScreens = (props) => {
     return {
       id: index,
       stt: index + 1,
-      name: e?.profile?.fullName,
-      phoneNumber: e?.profile?.phoneNumber,
-      address: e?.profile?.address,
-      level: e?.cv?.information?.level,
+      name: e?.fullName,
+      phoneNumber: e?.phoneNumber,
+      address: e?.address,
+      email: e?.email,
       created: covertDate(e?.cv?.created),
       action: e,
     };
@@ -92,21 +93,18 @@ const CandidateScreens = (props) => {
   const handleClick = () => {
     history.push(AdminSlug.CREATE_CANDIDATE);
   };
-
-  const hanldeClickEditor = () => {
-    history.push(AdminSlug.CANDIDATEEDITOR);
+  const handleClickUser = () => {
+    history.push(AdminSlug.CANDIDATE);
   };
+
   return (
     <Grid>
       <div className="header-title">
         <span>Danh sách ứng viên:</span>
-        <span className="ml-3 btn-cadidate btn-candidate-active">
+        <span className="ml-3 btn-cadidate" onClick={handleClickUser}>
           Người dùng
         </span>
-        <span className="ml-3 btn-cadidate" onClick={hanldeClickEditor}>
-          Được tạo
-        </span>
-
+        <span className="ml-3 btn-cadidate btn-candidate-active">Được tạo</span>
         <Button
           variant="contained"
           color="primary"
@@ -134,4 +132,4 @@ const CandidateScreens = (props) => {
   );
 };
 
-export default CandidateScreens;
+export default CandidateEditor;

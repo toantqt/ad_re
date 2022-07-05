@@ -1,6 +1,8 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import adminSlug from "../resources/AdminSlug";
+import CandidateEditor from "../screens/Admin/Candidate/screens/CandidateEditorScreens";
 import CandidateScreens from "../screens/Admin/Candidate/screens/CandidateScreens";
+import CreateCandidateScreens from "../screens/Admin/Candidate/screens/CreateCandidateScreens";
 import CompanyScreens from "../screens/Admin/Company/screens/CompanyScreens";
 import CreateCompanyScreens from "../screens/Admin/Company/screens/CreateCompanyScreens";
 import CreateRecruitmentScreens from "../screens/Admin/Recruitment/screens/CreateRecruitmentScreens";
@@ -50,6 +52,24 @@ const AdminRoutes = (props) => {
               {...props}
             />
           );
+        }}
+      ></Route>
+
+      <Route
+        exact
+        path={adminSlug.CREATE_CANDIDATE}
+        render={(props) => {
+          return (
+            <CreateCandidateScreens handleLoading={handleLoading} {...props} />
+          );
+        }}
+      ></Route>
+
+      <Route
+        exact
+        path={adminSlug.CANDIDATEEDITOR}
+        render={(props) => {
+          return <CandidateEditor handleLoading={handleLoading} {...props} />;
         }}
       ></Route>
     </Switch>

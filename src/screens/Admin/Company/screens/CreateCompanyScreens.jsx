@@ -83,7 +83,7 @@ const CreateCompanyScreens = (props) => {
     newData.background = background?.image;
     props.handleLoading(true);
     await createCompany(newData)
-      .then((res) => {
+      .then(() => {
         history.push(AdminSlug.COMPANY);
       })
       .catch((error) => {
